@@ -1,89 +1,44 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" style="height: 100%">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Tweety</title>
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <style>
-        html, body {
-            background-color: #fff;
-            color: #636b6f;
-            font-family: 'Nunito', sans-serif;
-            font-weight: 200;
-            height: 100vh;
-            margin: 0;
-        }
-
-        .full-height {
-            height: 100vh;
-        }
-
-        .flex-center {
-            align-items: center;
-            display: flex;
-            justify-content: center;
-        }
-
-        .position-ref {
-            position: relative;
-        }
-
-        .top-right {
-            position: absolute;
-            right: 10px;
-            top: 18px;
-        }
-
-        .content {
-            text-align: center;
-        }
-
-        .title {
-            font-size: 84px;
-        }
-
-        .links > a {
-            color: #636b6f;
-            padding: 0 25px;
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: .1rem;
-            text-decoration: none;
-            text-transform: uppercase;
-        }
-
-        .m-b-md {
-            margin-bottom: 30px;
-        }
-    </style>
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
-<div class="flex-center position-ref full-height">
+<body class="home">
+<section class="home">
 
+    <div class="container">
+        <div class="row">
+            <div class="mx-auto full-height d-flex align-items-center">
 
-    <div class="content">
-        <div class="flex-center">
-            <img style="margin-right: 30px" alt="logo" src="{{ asset('images/logo.svg') }}">
-            <div class="title m-b-md">
-                Tweety
+                <div class="d-block">
+                    <div class="d-flex align-items-center mb-2">
+                        <img class="mr-2 home-logo" alt="logo" src="{{ asset('images/logo.svg') }}">
+                        <div class="display-1">Tweety</div>
+                    </div>
+
+                    <div class="d-flex justify-content-around h2">
+                        @auth
+                            <a href="{{ url('/tweets') }}">Home</a>
+                        @else
+                            <a href="{{ route('login') }}">Login</a>
+                            <a href="{{ route('register') }}">Register</a>
+                        @endauth
+                    </div>
+                </div>
+
             </div>
         </div>
-
-        <div class="links">
-            @auth
-                <a href="{{ url('/tweets') }}">Home</a>
-            @else
-                <a href="{{ route('login') }}">Login</a>
-                <a href="{{ route('register') }}">Register</a>
-            @endauth
-        </div>
     </div>
-</div>
+
+</section>
 </body>
 </html>

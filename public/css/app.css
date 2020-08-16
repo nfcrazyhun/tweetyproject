@@ -10904,3 +10904,15 @@ a.text-dark:focus {
   }
 }
 
+.home {
+  background-color: lightblue;
+}
+
+.home .logo {
+  height: 6rem;
+}
+
+.home .full-height {
+  min-height: 100vh;
+}
+
