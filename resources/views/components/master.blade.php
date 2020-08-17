@@ -20,18 +20,20 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
-        <section class="px-8 py-4 mb-6">
-            <header class="container mx-auto">
-                <h1>
+    <div id="app" class="container">
+        <section class="py-4 site-header">
+            <header>
                     <a href="{{route('tweets.index')}}">
-                        <img
-                            src="/images/logo.svg"
-                            alt="Tweety"
-                        >
-                        Tweety
+                        <div class="d-flex align-items-center">
+                            <img
+                                class="logo mr-1"
+                                src="{{asset('images/logo.svg')}}"
+                                alt="Tweety"
+                            >
+                            <div class="logo-text">Tweety</div>
+                        </div>
+
                     </a>
-                </h1>
             </header>
         </section>
 

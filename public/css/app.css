@@ -10916,3 +10916,11 @@ a.text-dark:focus {
   min-height: 100vh;
 }
 
+.site-header .logo {
+  height: 2rem;
+}
+
+.site-header .logo-text {
+  font-size: 2rem;
+}
+
