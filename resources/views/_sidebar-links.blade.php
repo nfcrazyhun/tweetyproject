@@ -1,16 +1,16 @@
-<ul>
-    <li>
+<ul class="list-unstyled h4 font-weight-bold">
+    <li class="mb-3">
         <a
-            class="font-bold text-lg mb-4 block"
+            class="text-decoration-none text-dark"
             href="{{ route('tweets.index') }}"
         >
             Home
         </a>
     </li>
 
-    <li>
+    <li class="mb-3">
         <a
-            class="font-bold text-lg mb-4 block"
+            class="text-decoration-none text-dark"
             href="/explore"
         >
             Explore
@@ -31,7 +31,7 @@
             <form method="POST" action="/logout">
                 @csrf
 
-                <button class="font-bold text-lg">Logout</button>
+                <button class="btn btn-outline-primary btn-sm">Logout</button>
             </form>
         </li>
     @endauth

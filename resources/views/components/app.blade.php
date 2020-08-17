@@ -1,17 +1,17 @@
 <x-master>
-    <section class="px-8">
-        <main class="container mx-auto">
-            <div class="lg:flex lg:justify-center">
-                <div class="lg:w-32">
+    <section class="app">
+        <main class="mx-0">
+            <div class="d-flex justify-content-between">
+                <div class="col-2 px-0">
                     @include ('_sidebar-links')
                 </div>
 
-                <div class="lg:flex-1 lg:mx-10 lg:mb-10" style="max-width: 700px">
+                <div class="col">
                     {{ $slot }}
                 </div>
 
                 @auth
-                    <div class="lg:w-1/6">
+                    <div class="col-3 px-0">
                         @include ('_friends-list')
                     </div>
                 @endauth

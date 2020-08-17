@@ -23,14 +23,17 @@
     <div id="app" class="container">
         <section class="py-4 site-header">
             <header>
-                    <a href="{{route('tweets.index')}}">
+                    <a
+                        class="text-decoration-none"
+                        href="{{route('tweets.index')}}"
+                    >
                         <div class="d-flex align-items-center">
                             <img
-                                class="logo mr-1"
+                                class="logo mr-2"
                                 src="{{asset('images/logo.svg')}}"
                                 alt="Tweety"
                             >
-                            <div class="logo-text">Tweety</div>
+                            <div class="logo-text text-dark">Tweety</div>
                         </div>
 
                     </a>

@@ -1,4 +1,4 @@
-<div class="bg-gray-200 border border-gray-300 rounded-lg py-4 px-6">
+<div class="p-3 border border-info rounded-lg">
     <h3 class="font-bold text-xl mb-4">Following</h3>
 
     <ul>
@@ -19,7 +19,7 @@
 {{--                </div>--}}
 {{--            </li>--}}
 {{--        @empty--}}
-{{--            <li>No friends yet!</li>--}}
+        <p class="my-4">No friends yet!</p>
 {{--        @endforelse--}}
     </ul>
 </div>
