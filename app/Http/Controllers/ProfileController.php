@@ -7,6 +7,16 @@ use Illuminate\Validation\Rule;
 
 class ProfilesController extends Controller
 {
+    /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return 'username';
+    }
+
     public function show(User $user)
     {
         return view('profiles.show', [
