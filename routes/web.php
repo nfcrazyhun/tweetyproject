@@ -23,3 +23,4 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/tweets', 'TweetController');
+Route::resource('/profiles', 'ProfileController');
