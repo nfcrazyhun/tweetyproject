@@ -3,13 +3,13 @@
 
     <ul class="list-unstyled">
         @forelse (auth()->user()->follows as $user)
-            <li class="{{ $loop->last ? '' : 'mb-4' }}">
+            <li class="{{ $loop->last ? '' : 'mb-3' }}">
                 <div>
                     <a href="{{ $user->path() }}" class="flex items-center text-sm">
                         <img
                             src="{{ $user->avatar }}"
                             alt=""
-                            class="rounded-full mr-2"
+                            class="mr-1 rounded-circle"
                             width="40"
                             height="40"
                         >
@@ -19,7 +19,7 @@
                 </div>
             </li>
         @empty
-        <p class="my-4">No friends yet!</p>
+        <li class="my-4">No friends yet!</li>
         @endforelse
     </ul>
 </div>
