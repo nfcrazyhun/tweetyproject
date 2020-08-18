@@ -23,7 +23,7 @@
             </svg>
 
             <button type="submit"
-                    class=""
+                    class="btn btn-outline-success"
             >
                 {{ $tweet->likes ?: 0 }}
             </button>
@@ -55,7 +55,7 @@
             </svg>
 
             <button type="submit"
-                    class=""
+                    class="btn btn-outline-danger"
             >
                 {{ $tweet->dislikes ?: 0 }}
             </button>
