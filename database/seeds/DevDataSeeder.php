@@ -3,7 +3,7 @@
 use App\User;
 use Illuminate\Database\Seeder;
 
-class DevTableSeeder extends Seeder
+class DevDataSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,7 +12,7 @@ class DevTableSeeder extends Seeder
      */
     public function run()
     {
-        $elek = User::create([
+        $elek = factory(User::class)->create([
             'name' => 'Test Elek',
             'username' => 'testelek',
             'email' => 'test@test1.com',
