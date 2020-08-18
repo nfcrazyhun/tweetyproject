@@ -4,7 +4,7 @@
     >
         @csrf
 
-        <div class="flex items-center mr-4 {{ $tweet->isLikedBy(current_user()) ? 'text-blue-500' : 'text-gray-500' }}">
+        <div class="flex items-center mr-4 {{ $tweet->isLikedBy(auth()->user()) ? 'text-blue-500' : 'text-gray-500' }}">
             <svg viewBox="0 0 20 20"
                  class="mr-1 w-3"
             >
