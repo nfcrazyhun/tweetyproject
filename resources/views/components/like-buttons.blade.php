@@ -1,10 +1,10 @@
-<div class="flex">
+<div class="row">
     <form method="POST"
           action="/tweets/{{ $tweet->id }}/like"
     >
         @csrf
 
-        <div class="flex items-center mr-4 {{ $tweet->isLikedBy(auth()->user()) ? 'text-blue-500' : 'text-gray-500' }}">
+        <div class="d-flex align-items-center mr-4 {{ $tweet->isLikedBy(auth()->user()) ? 'text-primary' : 'text-secondary' }}">
             <svg viewBox="0 0 20 20"
                  class="mr-1 w-3"
             >
@@ -23,7 +23,7 @@
             </svg>
 
             <button type="submit"
-                    class="text-xs"
+                    class=""
             >
                 {{ $tweet->likes ?: 0 }}
             </button>
@@ -36,7 +36,7 @@
         @csrf
         @method('DELETE')
 
-        <div class="flex items-center {{ $tweet->isDislikedBy(auth()->user()) ? 'text-blue-500' : 'text-gray-500' }}">
+        <div class="d-flex align-items-center {{ $tweet->isDislikedBy(auth()->user()) ? 'text-primary' : 'text-secondary' }}">
             <svg viewBox="0 0 20 20"
                  class="mr-1 w-3"
             >
@@ -55,7 +55,7 @@
             </svg>
 
             <button type="submit"
-                    class="text-xs"
+                    class=""
             >
                 {{ $tweet->dislikes ?: 0 }}
             </button>
