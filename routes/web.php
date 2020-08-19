@@ -23,6 +23,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/tweets', 'TweetController');
-Route::resource('/profiles', 'ProfileController', ['parameters' => ['profiles' => 'user']] ); //changed wildcard
 
+Route::resource('/profiles', 'ProfileController', ['parameters' => ['profiles' => 'user']] ); //changed wildcard
 Route::post('/profiles/{user:username}/follow','FollowController@store')->name('follow');
+
+Route::get('/explore', 'ExploreController')->name('explore'); //invocable

@@ -11,7 +11,7 @@
     <li class="mb-3">
         <a
             class="text-decoration-none text-dark"
-            href="/explore"
+            href="{{ route('explore') }}"
         >
             Explore
         </a>
