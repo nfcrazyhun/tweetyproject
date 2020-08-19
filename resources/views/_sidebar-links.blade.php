@@ -18,13 +18,27 @@
     </li>
 
     @auth
-        <li>
-{{--            <a--}}
-{{--                class="font-bold text-lg mb-4 block"--}}
-{{--                href="{{ auth()->user()->path() }}"--}}
-{{--            >--}}
-{{--                Profile--}}
-{{--            </a>--}}
+        <li class="mb-3">
+            <a
+                class="text-decoration-none text-dark"
+                href="{{ auth()->user()->path() }}"
+            >
+                Profile
+            </a>
+        </li>
+
+        <li class="mb-3">
+            <a
+                class="text-decoration-none text-dark"
+                href="{{ auth()->user()->path('notifications') }}"
+            >
+                Notifications
+{{--                @if(auth()->user()->unreadNotifications()->count())--}}
+{{--                    <span style="width:25px" class="btn btn btn-outline-success">--}}
+{{--                    {{ auth()->user()->unreadNotifications()->count() }}--}}
+{{--                    </span>--}}
+{{--                @endif--}}
+            </a>
         </li>
 
         <li>
