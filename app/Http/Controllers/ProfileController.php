@@ -30,13 +30,17 @@ class ProfileController extends Controller
         ]);
     }
 
-    public function edit(User $user)
+    public function edit($username)
     {
+        $user = User::where(['username'=>$username])->first();
+
         return view('profiles.edit', compact('user'));
     }
 
-    public function update(User $user)
+    public function update($username)
     {
+        $user = User::where(['username'=>$username])->first();
+
         $attributes = request()->validate([
             'username' => [
                 'string',

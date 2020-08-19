@@ -24,3 +24,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/tweets', 'TweetController');
 Route::resource('/profiles', 'ProfileController', ['parameters' => ['profiles' => 'user']] ); //changed wildcard
+
+Route::post('/profiles/{user:username}/follow','FollowsController@store')->name('follow');
