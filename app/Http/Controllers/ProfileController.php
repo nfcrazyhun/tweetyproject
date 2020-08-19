@@ -17,8 +17,10 @@ class ProfileController extends Controller
         return 'username';
     }
 
-    public function show(User $user)
+    public function show($username)
     {
+        $user = User::where(['username'=>$username])->first();
+
         return view('profiles.show', [
             'user' => $user,
             'tweets' => $user
