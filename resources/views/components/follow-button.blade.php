@@ -6,7 +6,7 @@
             @csrf
 
             <button type="submit"
-                    class="bg-blue-500 rounded-full shadow py-2 px-4 text-white text-xs"
+                    class="btn btn-primary"
             >
                 {{ auth()->user()->following($user) ? 'Unfollow Me' : 'Follow Me' }}
             </button>
