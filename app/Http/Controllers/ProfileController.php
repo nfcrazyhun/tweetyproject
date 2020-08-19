@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Validation\Rule;
 
-class ProfilesController extends Controller
+class ProfileController extends Controller
 {
     /**
      * Get the route key for the model.
