@@ -5,13 +5,13 @@
             <li class="p-4 border {{ $loop->last ? '' : 'border-b-0' }}">
                 @switch($notification->type)
                     @case('App\Notifications\UserMentioned')
-                    <a href="{{ route('tweet', $notification->data['id'] ) }}">
+                    <a href="{{ route('tweets.show', $notification->data['id'] ) }}">
                         You were mentioned in Tweet: <blockquote class="font-italic text-gray-600">{{ $notification->data['body'] }}</blockquote>
                     </a>
                     @break
 
                     @case('App\Notifications\UserFollowed')
-                    <a href="{{ route('profile', $notification->data['username'] ) }}">
+                    <a href="{{ route('profiles.show', $notification->data['username'] ) }}">
                         You were followed by {{ '@' . $notification->data['username'] }}
                     </a>
                     @break
