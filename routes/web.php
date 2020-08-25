@@ -23,6 +23,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/tweets', 'TweetController');
+Route::post('/tweets/{tweet}/like', 'TweetLikesController@store');
+Route::delete('/tweets/{tweet}/like', 'TweetLikesController@destroy');
 
 Route::resource('/profiles', 'ProfileController', ['parameters' => ['profiles' => 'user']] ); //changed wildcard
 Route::post('/profiles/{user:username}/follow','FollowController@store')->name('follow');
