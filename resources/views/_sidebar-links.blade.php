@@ -33,11 +33,11 @@
                 href="{{ auth()->user()->path('notifications') }}"
             >
                 Notifications
-{{--                @if(auth()->user()->unreadNotifications()->count())--}}
-{{--                    <span style="width:25px" class="btn btn btn-outline-success">--}}
-{{--                    {{ auth()->user()->unreadNotifications()->count() }}--}}
-{{--                    </span>--}}
-{{--                @endif--}}
+                @if(auth()->user()->unreadNotifications()->count())
+                    <span class="btn btn btn-outline-primary">
+                    {{ auth()->user()->unreadNotifications()->count() }}
+                    </span>
+                @endif
             </a>
         </li>
 
