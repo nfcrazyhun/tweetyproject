@@ -1,16 +1,16 @@
 <x-app>
-    <header class="mb-6 relative">
-        <div class="relative">
+    <header class="mb-5 position-relative">
+        <div class="position-relative">
             <img src="{{ $user->banner }}"
                  alt=""
                  class="mb-2 rounded"
+                 style="width: 100%"
             >
 
             <img src="{{ $user->avatar }}"
                  alt=""
-                 class="rounded-full mr-2 absolute bottom-0 transform -translate-x-1/2 translate-y-1/2"
-                 style="left: 50%"
-                 width="150"
+                 class="rounded mr-2 position-absolute"
+                 style="left: 50%; max-width: 150px"
             >
         </div>
         <div class="d-flex justify-content-between align-items-center mb-5">
@@ -22,7 +22,7 @@
             <div class="flex">
                 @can ('edit', $user)
                     <a href="{{ $user->path('edit') }}"
-                       class="rounded-full border border-gray-300 py-2 px-4 text-black text-xs mr-2"
+                       class="rounded-pill border border-gray-300 py-2 px-4 text-black text-xs mr-2"
                     >
                         Edit Profile
                     </a>

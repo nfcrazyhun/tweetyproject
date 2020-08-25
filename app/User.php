@@ -39,7 +39,7 @@ class User extends Authenticatable
 
     public function getBannerAttribute($value)
     {
-        return asset($value ? 'storage/' . $value : '/images/default-profile-banner.jpg');
+        return asset($value ? 'storage/' . $value : '/images/default-profile-banner.png');
     }
 
     public function timeline()
