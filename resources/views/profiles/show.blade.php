@@ -13,13 +13,13 @@
                  style="left: 50%; max-width: 150px"
             >
         </div>
-        <div class="d-flex justify-content-between align-items-center mb-5">
+        <div class="d-flex justify-content-between align-items-center mb-2">
             <div style="max-width: 270px">
                 <h2 class="font-bold text-2xl mb-0">{{ $user->name }}</h2>
                 <p class="text-sm">Joined {{ $user->created_at->diffForHumans() }}</p>
             </div>
 
-            <div class="flex">
+            <div class="d-flex">
                 @can ('edit', $user)
                     <a href="{{ $user->path('edit') }}"
                        class="rounded-pill border border-gray-300 py-2 px-4 text-black text-xs mr-2"
