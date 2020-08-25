@@ -1,12 +1,13 @@
 <x-app>
     <h2 class="font-bold text-lg">Notifications</h2>
-    <ul>
+    <ul class="list-unstyled">
         @forelse( $notifications as $notification )
-            <li class="p-4 border {{ $loop->last ? '' : 'border-b-0' }}">
+            <li class="p-3 border border-primary rounded {{ $loop->last ? '' : 'border-bottom-0' }}">
                 @switch($notification->type)
                     @case('App\Notifications\UserMentioned')
                     <a href="{{ route('tweets.show', $notification->data['id'] ) }}">
-                        You were mentioned in Tweet: <blockquote class="font-italic text-gray-600">{{ $notification->data['body'] }}</blockquote>
+                        You were mentioned in Tweet:
+                        <blockquote class="font-italic text-secondary">{{ $notification->data['body'] }}</blockquote>
                     </a>
                     @break
 
@@ -14,6 +15,9 @@
                     <a href="{{ route('profiles.show', $notification->data['username'] ) }}">
                         You were followed by {{ '@' . $notification->data['username'] }}
                     </a>
+                    <span class="text-secondary">
+                        &#32;-&nbsp;{{$notification->created_at->diffForHumans()}}
+                    </span>
                     @break
                 @endswitch
             </li>
@@ -21,4 +25,5 @@
             <li>No Notifications</li>
         @endforelse
     </ul>
+    {{ $notifications->links() }}
 </x-app>

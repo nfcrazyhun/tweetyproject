@@ -9,10 +9,8 @@ class NotificationsController extends Controller
 {
     public function index(User $user)
     {
-        $notifications = $user->unreadNotifications()->paginate(20);
+        $notifications = $user->notifications()->paginate(20);
         $notifications->markAsRead();
-        return view('notifications.index', [
-            'notifications' => $notifications
-        ]);
+        return view('notifications.index', compact('notifications'));
     }
 }
