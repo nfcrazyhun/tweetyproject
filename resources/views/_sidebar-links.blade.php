@@ -33,9 +33,10 @@
                 href="{{ auth()->user()->path('notifications') }}"
             >
                 Notifications
-                @if(auth()->user()->unreadNotifications()->count())
-                    <span class="btn btn btn-outline-primary">
-                    {{ auth()->user()->unreadNotifications()->count() }}
+                @php ($notif_count = auth()->user()->unreadNotifications()->count())
+                @if( $notif_count > 0)
+                    <span class="btn btn-outline-primary">
+                    {{ $notif_count }}
                     </span>
                 @endif
             </a>
@@ -44,7 +45,6 @@
         <li>
             <form method="POST" action="/logout">
                 @csrf
-
                 <button class="btn btn-outline-primary btn-sm">Logout</button>
             </form>
         </li>
