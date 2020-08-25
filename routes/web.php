@@ -26,5 +26,6 @@ Route::resource('/tweets', 'TweetController');
 
 Route::resource('/profiles', 'ProfileController', ['parameters' => ['profiles' => 'user']] ); //changed wildcard
 Route::post('/profiles/{user:username}/follow','FollowController@store')->name('follow');
+Route::get('/profiles/{user:username}/notifications','NotificationsController@index')->name('notifications.index');
 
 Route::get('/explore', 'ExploreController')->name('explore'); //invocable
