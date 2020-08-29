@@ -19,9 +19,9 @@
                     {{ $tweet->user->name }}
                 </a>
             </h5>
-            <p class="text-secondary">
+            <span class="text-secondary">
                 &nbsp;-&nbsp;{{$tweet->created_at->diffForHumans()}}
-            </p>
+            </span>
         </div>
 
         <p class="text-sm mb-3">

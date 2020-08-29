@@ -15,9 +15,9 @@
                     <a href="{{ route('profiles.show', $notification->data['username'] ) }}">
                         You were followed by {{ '@' . $notification->data['username'] }}
                     </a>
-                    <p class="text-secondary">
+                    <span class="text-secondary">
                         &nbsp;-&nbsp;{{$notification->created_at->diffForHumans()}}
-                    </p>
+                    </span>
                     @break
                 @endswitch
             </li>
