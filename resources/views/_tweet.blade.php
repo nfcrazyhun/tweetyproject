@@ -14,14 +14,14 @@
     <div>
         <div class="d-flex">
 
-        <h5 class="font-bold mb-2">
-            <a href="{{ $tweet->user->path() }}">
-                {{ $tweet->user->name }}
-            </a>
-        </h5>
-        <span class="text-secondary">
-            &#32;-&nbsp;{{$tweet->created_at->diffForHumans()}}
-        </span>
+            <h5 class="font-bold mb-2">
+                <a href="{{ $tweet->user->path() }}">
+                    {{ $tweet->user->name }}
+                </a>
+            </h5>
+            <p class="text-secondary">
+                &nbsp;-&nbsp;{{$tweet->created_at->diffForHumans()}}
+            </p>
         </div>
 
         <p class="text-sm mb-3">
@@ -29,7 +29,7 @@
         </p>
 
         @auth
-            <x-like-buttons :tweet="$tweet" />
+            <x-like-buttons :tweet="$tweet"/>
         @endauth
     </div>
 </div>
