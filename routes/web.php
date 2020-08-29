@@ -29,7 +29,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/explore', 'ExploreController')->name('explore'); //invocable
 
     //show user
-    Route::resource('/profiles', 'ProfileController', ['parameters' => ['profiles' => 'user:username']])->only('show'); //show profile
+    Route::resource('/profiles', 'ProfileController', ['parameters' => ['profiles' => 'user']])->only('show'); //show profile
 
     //tweet
     Route::resource('/tweets', 'TweetController');
@@ -38,13 +38,14 @@ Route::middleware('auth')->group(function () {
 
     //follow
     Route::post('/profiles/{user:username}/follow', 'FollowController@store')->name('follow');
+
     //----Profile group----
     Route::middleware('can:edit,user')->group(function () {
         //notification
         Route::get('/profiles/{user:username}/notifications', 'NotificationsController@index')->name('notifications.index');
 
         //profile except show
-        Route::resource('/profiles', 'ProfileController', ['parameters' => ['profiles' => 'user:username']])->except('show'); //changed wildcard
+        Route::resource('/profiles', 'ProfileController', ['parameters' => ['profiles' => 'user']])->except('show'); //changed wildcard
 
         //remove asset
         //Route::get('/profiles/{user:username}/edit/remove/{asset}', 'ProfileAssetsController@destroy');

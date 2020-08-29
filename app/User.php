@@ -10,6 +10,16 @@ class User extends Authenticatable
     use Notifiable, Followable;
 
     /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return 'username'; //find model by username instead of id
+    }
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
