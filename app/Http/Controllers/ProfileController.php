@@ -31,19 +31,23 @@ class ProfileController extends Controller
     {
         $attributes = request()->validate([
             'username' => [
-                'string',
                 'required',
+                'string',
                 'max:255',
                 'alpha_dash',
                 Rule::unique('users')->ignore($user),
             ],
-            'name' => ['string', 'required', 'max:255'],
+            'name' => [
+                'required',
+                'string',
+                'max:255',
+            ],
             'avatar' => ['image'],
             'banner' => ['image'],
             'description' => ['string'],
             'email' => [
-                'string',
                 'required',
+                'string',
                 'email',
                 'max:255',
                 Rule::unique('users')->ignore($user),
