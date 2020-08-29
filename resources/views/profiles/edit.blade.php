@@ -3,118 +3,132 @@
         @csrf
         @method('PATCH')
 
-        <div class="mb-6">
-            <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
+        <div class="form-group">
+            <label class="text-uppercase font-weight-bold"
                    for="name"
             >
                 Name
             </label>
 
-            <input class="border border-gray-400 p-2 w-full"
+            <input class="form-control @error('name') is-invalid @enderror"
                    type="text"
                    name="name"
                    id="name"
-                   value="{{ $user->name }}"
-                   required
+                   value="{{ old('name',$user->name) }}"
             >
 
             @error('name')
-            <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                <p class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </p>
             @enderror
         </div>
 
-        <div class="mb-6">
-            <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
+        <div class="form-group">
+            <label class="text-uppercase font-weight-bold"
                    for="username"
             >
                 Username
             </label>
 
-            <input class="border border-gray-400 p-2 w-full"
+            <input class="form-control @error('username') is-invalid @enderror"
                    type="text"
                    name="username"
                    id="username"
-                   value="{{ $user->username }}"
-                   required
+                   value="{{ old('username',$user->username) }}"
             >
 
             @error('username')
-            <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+            <p class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </p>
             @enderror
         </div>
 
-        <div class="mb-6">
-            <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
+        <div class="form-group">
+            <label class="text-uppercase font-weight-bold"
                    for="description"
             >
                 Description
             </label>
 
             <textarea
-                class="border border-gray-400 p-2 w-full"
+                class="form-control @error('description') is-invalid @enderror"
                 name="description"
                 id="description"
                 rows="5"
-            >{{ $user->description }}</textarea>
+            >{{ old('description',$user->description) }}</textarea>
 
             @error('description')
-            <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+            <p class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </p>
             @enderror
         </div>
 
-        <div class="mb-6">
-            <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
+        <div class="form-group">
+            <label class="text-uppercase font-weight-bold"
                    for="avatar"
             >
                 Avatar
             </label>
 
-            <div class="flex">
-                <input class="border border-gray-400 p-2 w-full"
+            <div>
+                <img src="{{ $user->avatar }}"
+                     alt="your avatar"
+                     width="150"
+                     class="img-thumbnail"
+                >
+            </div>
+
+            <div class="form-group mt-2">
+                <input class="form-control-file"
                        type="file"
                        name="avatar"
                        id="avatar"
                        accept="image/*"
                 >
-
-                <img src="{{ $user->avatar }}"
-                     alt="your avatar"
-                     width="40"
-                >
-
-                @if( false === strpos( $user->avatar, 'images/default-avatar' ) )
-                    <a href="{{ route('profile', $user ) . '/edit/remove/avatar' }}"
-                       class="bg-red-400 text-white rounded py-2 px-4 hover:bg-blue-500 ml-4 inline-block"
-                       style="line-height: 31px"
-                    >
-                        X
-                    </a>
-                @endif
+{{--                @if( false === strpos( $user->avatar, 'images/default-avatar' ) )--}}
+{{--                    <a href="{{ route('profile', $user ) . '/edit/remove/avatar' }}"--}}
+{{--                       class="bg-red-400 text-white rounded py-2 px-4 hover:bg-blue-500 ml-4 inline-block"--}}
+{{--                       style="line-height: 31px"--}}
+{{--                    >--}}
+{{--                        X--}}
+{{--                    </a>--}}
+{{--                @endif--}}
             </div>
 
-
             @error('avatar')
-            <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+            <p class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </p>
             @enderror
         </div>
 
 
-        <div class="mb-6">
-            <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
-                   for="avatar"
+        <div class="form-group">
+            <label class="text-uppercase font-weight-bold"
+                   for="banner"
             >
                 Banner
             </label>
 
-            <div class="relative">
+            <div class="form-group">
+{{--                @if( false === strpos( $user->banner, 'images/default-profile-banner.jpg' ) )--}}
+{{--                    <a href="{{ route('profile', $user ) . '/edit/remove/banner' }}"--}}
+{{--                       class="bg-red-400 absolute text-white rounded py-2 px-4 hover:bg-blue-500 mr-4"--}}
+{{--                    >--}}
+{{--                        X--}}
+{{--                    </a>--}}
+{{--                @endif--}}
                 <img src="{{ $user->banner }}"
                      alt="your banner"
-                     class="w-auto mb-4"
+                     class="img-thumbnail"
                      style="max-height:250px;max-width:100%"
                 >
             </div>
 
-            <input class="border border-gray-400 p-2 w-full"
+            <input class="form-control-file"
                    type="file"
                    name="banner"
                    id="banner"
@@ -122,75 +136,80 @@
             >
 
             @error('banner')
-            <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+            <p class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </p>
             @enderror
         </div>
 
 
-        <div class="mb-6">
-            <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
+        <div class="form-group">
+            <label class="text-uppercase font-weight-bold"
                    for="email"
             >
                 Email
             </label>
 
-            <input class="border border-gray-400 p-2 w-full"
+            <input class="form-control @error('email') is-invalid @enderror"
                    type="email"
                    name="email"
                    id="email"
-                   value="{{ $user->email }}"
-                   required
+                   value="{{ old('email',$user->email) }}"
             >
 
             @error('email')
-            <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+            <p class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </p>
             @enderror
         </div>
 
-        <div class="mb-6">
-            <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
+        <div class="form-group">
+            <label class="text-uppercase font-weight-bold"
                    for="password"
             >
                 Password
             </label>
 
-            <input class="border border-gray-400 p-2 w-full"
+            <input class="form-control @error('password') is-invalid @enderror"
                    type="password"
                    name="password"
                    id="password"
             >
 
             @error('password')
-            <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+            <p class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </p>
             @enderror
         </div>
 
-        <div class="mb-6">
-            <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
+        <div class="form-group">
+            <label class="text-uppercase font-weight-bold"
                    for="password_confirmation"
             >
                 Password Confirmation
             </label>
 
-            <input class="border border-gray-400 p-2 w-full"
+            <input class="form-control @error('password') is-invalid @enderror"
                    type="password"
                    name="password_confirmation"
                    id="password_confirmation"
             >
-
-            @error('password_confirmation')
-            <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
-            @enderror
         </div>
 
-        <div class="mb-6">
-            <button type="submit" name="submit" value="edit"
-                    class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500 mr-4"
+
+
+        <div class="form-group d-flex justify-content-between">
+            <button type="submit"
+                    name="submit"
+                    value="edit"
+                    class="btn btn-primary"
             >
                 Submit
             </button>
 
-            <a href="{{ $user->path() }}" class="hover:underline">Cancel</a>
+            <a href="{{ $user->path() }}" class="btn btn-secondary">Cancel</a>
         </div>
     </form>
 </x-app>

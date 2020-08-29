@@ -29,7 +29,6 @@ class ProfileController extends Controller
 
     public function update(User $user)
     {
-
         $attributes = request()->validate([
             'username' => [
                 'string',
@@ -57,6 +56,8 @@ class ProfileController extends Controller
                 'confirmed',
             ],
         ]);
+
+
 
         if (is_null($attributes['password'])){
             unset($attributes['password']);
