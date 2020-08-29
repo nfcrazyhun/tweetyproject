@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use http\Env\Request;
 use Illuminate\Validation\Rule;
 
 class ProfileController extends Controller
@@ -28,8 +29,7 @@ class ProfileController extends Controller
 
     public function update(User $user)
     {
-        $user = User::where(['username'=>$username])->first();
-
+        dd(\request()->all());
         $attributes = request()->validate([
             'username' => [
                 'string',
@@ -50,9 +50,9 @@ class ProfileController extends Controller
                 Rule::unique('users')->ignore($user),
             ],
             'password' => [
+                'nullable',
                 'string',
-                'required',
-                'min:8',
+                'min:6',
                 'max:255',
                 'confirmed',
             ],
