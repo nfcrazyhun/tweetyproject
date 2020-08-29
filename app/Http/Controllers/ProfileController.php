@@ -7,19 +7,10 @@ use Illuminate\Validation\Rule;
 
 class ProfileController extends Controller
 {
-    /**
-     * Get the route key for the model.
-     *
-     * @return string
-     */
-    public function getRouteKeyName()
-    {
-        return 'username';
-    }
 
-    public function show($username)
+    public function show(User $user)
     {
-        $user = User::where(['username'=>$username])->first();
+        //$user = User::where(['username'=>$user])->first();
 
         return view('profiles.show', [
             'user' => $user,
@@ -30,14 +21,12 @@ class ProfileController extends Controller
         ]);
     }
 
-    public function edit($username)
+    public function edit(User $user)
     {
-        $user = User::where(['username'=>$username])->first();
-
         return view('profiles.edit', compact('user'));
     }
 
-    public function update($username)
+    public function update(User $user)
     {
         $user = User::where(['username'=>$username])->first();
 

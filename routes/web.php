@@ -20,14 +20,35 @@ Route::get('/', function () {
 //Auth::loginUsingId(2);
 Auth::routes();
 
+//guest routes
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('/tweets', 'TweetController');
-Route::post('/tweets/{tweet}/like', 'TweetLikesController@store');
-Route::delete('/tweets/{tweet}/like', 'TweetLikesController@destroy');
 
-Route::resource('/profiles', 'ProfileController', ['parameters' => ['profiles' => 'user']] ); //changed wildcard
-Route::post('/profiles/{user:username}/follow','FollowController@store')->name('follow');
-Route::get('/profiles/{user:username}/notifications','NotificationsController@index')->name('notifications.index');
+Route::middleware('auth')->group(function () {
+    //explore
+    Route::get('/explore', 'ExploreController')->name('explore'); //invocable
 
-Route::get('/explore', 'ExploreController')->name('explore'); //invocable
+    //show user
+    Route::resource('/profiles', 'ProfileController', ['parameters' => ['profiles' => 'user:username']])->only('show'); //show profile
+
+    //tweet
+    Route::resource('/tweets', 'TweetController');
+    Route::post('/tweets/{tweet}/like', 'TweetLikesController@store');
+    Route::delete('/tweets/{tweet}/like', 'TweetLikesController@destroy');
+
+    //follow
+    Route::post('/profiles/{user:username}/follow', 'FollowController@store')->name('follow');
+    //----Profile group----
+    Route::middleware('can:edit,user')->group(function () {
+        //notification
+        Route::get('/profiles/{user:username}/notifications', 'NotificationsController@index')->name('notifications.index');
+
+        //profile except show
+        Route::resource('/profiles', 'ProfileController', ['parameters' => ['profiles' => 'user:username']])->except('show'); //changed wildcard
+
+        //remove asset
+        //Route::get('/profiles/{user:username}/edit/remove/{asset}', 'ProfileAssetsController@destroy');
+    });
+    //----Profile group end----
+
+});

@@ -107,13 +107,6 @@
             </label>
 
             <div class="relative">
-                @if( false === strpos( $user->banner, 'images/default-profile-banner.jpg' ) )
-                    <a href="{{ route('profile', $user ) . '/edit/remove/banner' }}"
-                       class="bg-red-400 absolute text-white rounded py-2 px-4 hover:bg-blue-500 mr-4"
-                    >
-                        X
-                    </a>
-                @endif
                 <img src="{{ $user->banner }}"
                      alt="your banner"
                      class="w-auto mb-4"
