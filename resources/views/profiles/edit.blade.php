@@ -88,14 +88,6 @@
                        id="avatar"
                        accept="image/*"
                 >
-{{--                @if( false === strpos( $user->avatar, 'images/default-avatar' ) )--}}
-{{--                    <a href="{{ route('profile', $user ) . '/edit/remove/avatar' }}"--}}
-{{--                       class="bg-red-400 text-white rounded py-2 px-4 hover:bg-blue-500 ml-4 inline-block"--}}
-{{--                       style="line-height: 31px"--}}
-{{--                    >--}}
-{{--                        X--}}
-{{--                    </a>--}}
-{{--                @endif--}}
             </div>
 
             @error('avatar')
@@ -114,13 +106,6 @@
             </label>
 
             <div class="form-group">
-{{--                @if( false === strpos( $user->banner, 'images/default-profile-banner.jpg' ) )--}}
-{{--                    <a href="{{ route('profile', $user ) . '/edit/remove/banner' }}"--}}
-{{--                       class="bg-red-400 absolute text-white rounded py-2 px-4 hover:bg-blue-500 mr-4"--}}
-{{--                    >--}}
-{{--                        X--}}
-{{--                    </a>--}}
-{{--                @endif--}}
                 <img src="{{ $user->banner }}"
                      alt="your banner"
                      class="img-thumbnail"
