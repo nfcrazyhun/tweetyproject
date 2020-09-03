@@ -5,5 +5,7 @@
         <p class="m-4">No tweets yet.</p>
     @endforelse
 
-    {{ $tweets->links() }}
+    <div class="d-flex justify-content-center">
+        {{ $tweets->links() }}
+    </div>
 </div>
