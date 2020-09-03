@@ -48,7 +48,7 @@ Route::middleware('auth')->group(function () {
         Route::resource('/profiles', 'ProfileController', ['parameters' => ['profiles' => 'user']])->except('show'); //changed wildcard
 
         //remove asset
-        Route::get('/profiles/{user:username}/edit/remove/{asset}', 'ProfileAssetsController@destroy');
+        Route::get('/profiles/{user:username}/edit/remove/{asset}', 'ProfileAssetController@destroy');
     });
     //----Profile group end----
 
