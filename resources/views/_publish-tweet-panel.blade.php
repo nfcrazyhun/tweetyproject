@@ -1,24 +1,24 @@
 <div class="p-3 border border-primary rounded-lg">
-    <form method="POST" action="/tweets">
+    <form method="POST" action="{{route('tweets.store')}}">
         @csrf
 
         <textarea
             name="body"
-            class="w-100"
+            class="w-100 @error('body') is-invalid @enderror"
             placeholder="What's up doc?"
             autofocus
         ></textarea>
 
         <hr class="my-2">
 
-        <footer class="pt-2 d-flex justify-content-end">
-{{--            <img--}}
-{{--                src="{{ auth()->user()->avatar }}"--}}
-{{--                alt="your avatar"--}}
-{{--                class="rounded-full mr-2"--}}
-{{--                width="50"--}}
-{{--                height="50"--}}
-{{--            >--}}
+        <footer class="d-flex justify-content-end">
+            <img
+                src="{{ asset(auth()->user()->avatar) }}"
+                alt="your avatar"
+                class="rounded-full mr-2"
+                width="50"
+                height="50"
+            >
 
             <button
                 type="submit"
@@ -30,6 +30,6 @@
     </form>
 
     @error('body')
-        <p class="text-red-500 text-sm mt-2">{{ $message }}</p>
+        <p class="text-danger">{{ $message }}</p>
     @enderror
 </div>
