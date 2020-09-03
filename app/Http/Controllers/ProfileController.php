@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\User;
-use http\Env\Request;
 use Illuminate\Validation\Rule;
 
 class ProfileController extends Controller
@@ -61,18 +60,19 @@ class ProfileController extends Controller
             ],
         ]);
 
-
-
         if (is_null($attributes['password'])){
             unset($attributes['password']);
         }
 
+
         if (request('avatar')) {
-            $attributes['avatar'] = request('avatar')->store('avatars');
+            $imageURL = request('avatar')->store('public/avatars');
+            $attributes['avatar'] = substr($imageURL, 7);
         }
 
         if (request('banner')) {
-            $attributes['banner'] = request('banner')->store('banners');
+            $imageURL = request('banner')->store('public/banners');
+            $attributes['banner'] = substr($imageURL, 7);
         }
 
         $user->update($attributes);
