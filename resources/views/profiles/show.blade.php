@@ -1,16 +1,15 @@
 <x-app>
-    <header class="mb-5 position-relative">
-        <div class="position-relative">
+    <header class="mb-5">
+        <div class="">
             <img src="{{ $user->banner }}"
                  alt=""
-                 class="mb-2 rounded"
-                 style="width: 100%"
+                 class="img-fluid rounded mb-2 "
             >
 
             <img src="{{ $user->avatar }}"
                  alt=""
                  class="rounded mr-2 position-absolute"
-                 style="left: 50%; max-width: 150px"
+                 style="left: 25%; max-width: 150px"
             >
         </div>
         <div class="d-flex justify-content-between align-items-center mb-2">
