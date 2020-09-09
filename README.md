@@ -19,6 +19,9 @@ git clone https://github.com/nfcrazyhun/tweetyproject.git
 ```
  3. cd into it
  4. Copy then rename .env.example to .env
+```
+cp .env.example .env
+```
  5. Install dependencies
 ```
 composer install
@@ -41,6 +44,7 @@ php artisan key:generate
 ```
  10. Create a new database
 - db name: tweety_db
+- Collation: utf8mb4_unicode_ci
  11. Run database migrations
 ```
 php artisan migrate
