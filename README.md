@@ -18,27 +18,34 @@ You can expect similar functionality like:
 git clone https://github.com/nfcrazyhun/tweetyproject.git
 ```
  3. cd into it
- 4. Install dependencies
+ 4. Copy then rename .env.example to .env
+ 5. Install dependencies
 ```
 composer install
 ```
- 5. Install npm packages
+ 6. Install npm packages
 ```
 npm install
 ```
- 6. Build your assets
+ 7. Build your assets
 ```
 npm run dev
 ```
-7. Create the symbolic links for storage
+ 8. Create the symbolic links for storage
 ```
 php artisan storage:link
 ```
- 8. Run database migrations
+ 9. Generate application key
+```
+php artisan key:generate
+```
+ 10. Create a new database
+- db name: tweety_db
+ 11. Run database migrations
 ```
 php artisan migrate
 ```
- 8.  -> 8.1 (optional)
+ 11.  -> 11.1 (optional)
 Run migration with demo data seeder
 ```
 php artisan migrate:fresh --seed
