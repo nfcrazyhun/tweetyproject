@@ -46,6 +46,7 @@ php artisan migrate:fresh --seed
 demo user login:
 - email: test@test1.com
 - password: 123qwe
+
 ## Note
 The project was made with the following software versions:
 - PHP 7.4.9
