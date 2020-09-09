@@ -48,7 +48,7 @@ demo user login:
 - password: 123qwe
 ## Note
 The project was made with the following software versions:
--   PHP 7.4.9
--   MySQL 8.0.21
--  Laravel 7.25.0
--  Bootstrap 4.5.2
+- PHP 7.4.9
+- MySQL 8.0.21
+- Laravel 7.25.0
+- Bootstrap 4.5.2
