@@ -66,12 +66,18 @@ class ProfileController extends Controller
 
 
         if (request('avatar')) {
-            $imageURL = request('avatar')->store('avatars','public'); //store into 'avatars' folder on 'public' disc
+            $avatar = request('avatar');
+            $filename = implode('.',[ $user->username, $avatar->extension() ]); // => username.ext
+
+            $imageURL = $avatar->storeAs('avatars',$filename,'public'); //store into 'avatars' folder on 'public' disc
             $attributes['avatar'] = $imageURL;
         }
 
         if (request('banner')) {
-            $imageURL = request('banner')->store('banners','public');
+            $banner = request('banner');
+            $filename = implode('.',[ $user->username, $banner->extension() ]);
+
+            $imageURL = $banner->storeAs('banners',$filename,'public');
             $attributes['banner'] = $imageURL;
         }
 
