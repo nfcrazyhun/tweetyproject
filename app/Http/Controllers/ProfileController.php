@@ -66,13 +66,13 @@ class ProfileController extends Controller
 
 
         if (request('avatar')) {
-            $imageURL = request('avatar')->store('public/avatars');
-            $attributes['avatar'] = substr($imageURL, 7);
+            $imageURL = request('avatar')->store('avatars','public'); //store into 'avatars' folder on 'public' disc
+            $attributes['avatar'] = $imageURL;
         }
 
         if (request('banner')) {
-            $imageURL = request('banner')->store('public/banners');
-            $attributes['banner'] = substr($imageURL, 7);
+            $imageURL = request('banner')->store('banners','public');
+            $attributes['banner'] = $imageURL;
         }
 
         $user->update($attributes);
