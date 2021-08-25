@@ -66,3 +66,7 @@ The project was made with the following software versions:
 - Bootstrap 4.5.2
 
 ## Screenshots
+![tweety-1](https://user-images.githubusercontent.com/47859399/130835162-0d8efbf4-c012-48b3-a6e9-38856ea7b254.JPG)
+![tweety-2](https://user-images.githubusercontent.com/47859399/130835167-c9e2bcec-df8f-4f96-879a-06ebc17e9f8e.JPG)
+![tweety-3](https://user-images.githubusercontent.com/47859399/130835170-f5d1ac7c-76d1-4669-9667-be10139424c7.JPG)
+![tweety-4](https://user-images.githubusercontent.com/47859399/130835175-24c5f0b5-9236-47dc-b8f9-edf4f9961f01.JPG)
