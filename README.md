@@ -64,3 +64,7 @@ The project was made with the following software versions:
 - MySQL 8.0.21
 - Laravel 7.25.0
 - Bootstrap 4.5.2
+
+## Screenshots
+![weather-app-1](https://user-images.githubusercontent.com/47859399/130794544-2897471f-bf17-4299-952c-0bd6b10bcb80.JPG)
+![weather-app-2](https://user-images.githubusercontent.com/47859399/130794556-9d828efc-f7cb-4c13-b1fa-bb6c35fe4d31.JPG)
